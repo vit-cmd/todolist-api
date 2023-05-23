@@ -1,3 +1,5 @@
+import {AuthenticationComponent} from '@loopback/authentication';
+import {JWTAuthenticationComponent, MyUserService, UserServiceBindings} from '@loopback/authentication-jwt';
 import {BootMixin} from '@loopback/boot';
 import {ApplicationConfig} from '@loopback/core';
 import {RepositoryMixin} from '@loopback/repository';
@@ -8,6 +10,7 @@ import {
 } from '@loopback/rest-explorer';
 import {ServiceMixin} from '@loopback/service-proxy';
 import path from 'path';
+import {DbDataSource} from './datasources';
 import {MySequence} from './sequence';
 
 export {ApplicationConfig};
@@ -40,5 +43,18 @@ export class TodoListApplication extends BootMixin(
         nested: true,
       },
     };
+
+    //...
+    // ------ ADD SNIPPET AT THE BOTTOM ---------
+    // Mount authentication system
+    this.component(AuthenticationComponent);
+    // Mount jwt component
+      this.component(JWTAuthenticationComponent);
+    // Bind datasource
+      // This is where your User data will be stored.
+      this.dataSource(DbDataSource, UserServiceBindings.DATASOURCE_NAME);
+    // Bind the user service to the one in @loopback/authentication-jwt
+      this.bind(UserServiceBindings.USER_SERVICE).toClass(MyUserService);
+    // ------------- END OF SNIPPET -------------
   }
 }

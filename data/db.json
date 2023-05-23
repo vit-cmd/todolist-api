@@ -1,7 +1,9 @@
 {
   "ids": {
     "Todo": 5,
-    "TodoList": 3
+    "TodoList": 3,
+    "User": 2,
+    "UserCredentials": 2
   },
   "models": {
     "Todo": {
@@ -13,6 +15,12 @@
     "TodoList": {
       "1": "{\"title\":\"Sith lord's check list\",\"color\":\"blue\",\"id\":1}",
       "2": "{\"title\":\"My daily chores\",\"color\":\"red\",\"id\":2}"
+    },
+    "User": {
+      "a044d91f-1118-4e2a-b4e3-8a75083a0c15": "{\"id\":\"a044d91f-1118-4e2a-b4e3-8a75083a0c15\",\"email\":\"testuser2@abc.com\"}"
+    },
+    "UserCredentials": {
+      "22aab419-835e-4188-853e-a38d198b285c": "{\"id\":\"22aab419-835e-4188-853e-a38d198b285c\",\"password\":\"$2a$10$5Sotn9TMuxEmrXAwHSMw6.xD/lQUb9AYbU0u4bNmna50kUPi/Qx1C\",\"userId\":\"a044d91f-1118-4e2a-b4e3-8a75083a0c15\"}"
     }
   }
 }
